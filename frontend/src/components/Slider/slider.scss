@@ -1,0 +1,36 @@
+.slider {
+    max-width: 100%;
+    overflow-x: hidden;
+
+    & .slick-list {
+        height: 444px; 
+
+        & .slick-track {
+            opacity: 1; 
+            height: 100%;
+
+            & .slick-slide {
+                max-width: 100%;
+                transition: all linear 0.5s;
+                opacity: 0.6;
+                padding: 0 14px;
+
+                & div {
+                    height: 100%;
+                }
+
+                &.slick-current {
+                    opacity: 1;
+                }
+
+                & img {
+                    border-radius: 14px;
+                    height: 100%;
+                    cursor: pointer;
+                }
+
+            }
+        }
+
+    }
+}

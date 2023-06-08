@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Nunito', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+// Variable
+$primary-color: #006a31;
+$second-color: #d50e15;
+$text-color: #111111;
+
+
+:root {
+    --primary-color: #{$primary-color};
+    --second-color: #{$second-color};
+    --text-color: #{$text-color};
+}
+
+.btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
