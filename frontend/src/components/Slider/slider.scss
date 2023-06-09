@@ -1,19 +1,20 @@
 .slider {
     max-width: 100%;
     overflow-x: hidden;
+    padding-top: 145px;
 
     & .slick-list {
-        height: 444px; 
+        height: 444px;
 
         & .slick-track {
-            opacity: 1; 
+            opacity: 1;
             height: 100%;
 
             & .slick-slide {
                 max-width: 100%;
                 transition: all linear 0.5s;
                 opacity: 0.6;
-                padding: 0 14px;
+                padding: 0 15px;
 
                 & div {
                     height: 100%;
@@ -24,7 +25,7 @@
                 }
 
                 & img {
-                    border-radius: 14px;
+                    border-radius: 16px;
                     height: 100%;
                     cursor: pointer;
                 }
@@ -33,4 +34,53 @@
         }
 
     }
+
+
+    & .slick-prev,
+    & .slick-next {
+        display: block !important;
+        width: 40px;
+        height: 40px;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        z-index: 3;
+        text-align: center;
+        transition: all ease-out 0.15s;
+
+        &::before {
+            display: none;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        & i {
+            font-size: 17px;
+            color: #fff;
+        }
+
+        &:hover {
+            background-color: var(--primary-color) !important;
+        }
+    }
+
+    & .slick-prev {
+        position: absolute;
+        top: 50%;
+        left: 7.5% !important;
+    }
+
+    & .slick-next {
+        position: absolute;
+        top: 50%;
+        right: 7.5% !important;
+    }
+
 }

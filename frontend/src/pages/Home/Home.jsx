@@ -1,5 +1,6 @@
 import Header from "../../components/Header"
 import Slider from "../../components/Slider"
+import HomeProducts from "../../components/HomeProducts"
 
 const sliders = [
     {
@@ -39,9 +40,10 @@ const sliders = [
 const Home = () => {
     return (
         <>
-            <Header/>
+            <Header />
             <Slider sliders={sliders} />
-        </> 
+            <HomeProducts />
+        </>
     )
 }
 

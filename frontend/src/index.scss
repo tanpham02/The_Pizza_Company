@@ -7,6 +7,11 @@
 html {
     font-size: 62.5%;
     font-family: 'Nunito', sans-serif;
+    scroll-behavior: 'smooth';
+}
+
+body {
+    height: 100vh;
 }
 
 ul {
@@ -29,4 +34,139 @@ $text-color: #111111;
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+
+// Common
+.products {
+
+    &__container {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 20px;
+        padding: 0 15px;
+        border: none;
+        outline: none;
+
+
+        &:hover {
+            cursor: pointer;
+
+            & .contents__name {
+                color: var(--primary-color) !important;
+            }
+        }
+
+        & img {
+            transition: all ease-in-out 0.3s;
+            padding: 5px;
+            vertical-align: middle;
+
+            &:hover {
+                transform: rotate(10deg) !important;
+
+            }
+        }
+
+        & .products__contents {
+            margin-top: 6px;
+
+            & .contents__name {
+                color: var(--text-color);
+                font-size: 1.65rem;
+                transition: all 0.2s ease-in-out;
+                font-weight: 800;
+                line-height: 2rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;
+                text-decoration: none;
+                letter-spacing: 1px;
+                margin: 14px 0 12px;
+                text-align: left;
+
+                &:hover {
+                    color: var(--primary-color);
+                    text-decoration: underline;
+                }
+            }
+
+            & .contents__desc {
+                font-size: 1.2rem;
+                color: #666666;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                text-align: justify;
+                margin-bottom: 10px;
+                font-weight: 500;
+                letter-spacing: -0.2px;
+                line-height: 1.85rem;
+            }
+        }
+
+        & .products__footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & .footer__prices {
+                font-size: 1.3rem;
+                color: #666666;
+                display: flex;
+                flex-direction: column;
+
+
+                & label {
+                    & .prices__old {
+                        padding-left: 5px;
+                        text-decoration: line-through;
+                    }
+                }
+
+                & .prices__actual {
+                    color: var(--text-color);
+                    font-size: 18px;
+                    font-weight: 800;
+                    width: 100%;
+                    margin-top: 5px;
+                    margin-right: 5px;
+                }
+
+            }
+
+            & .btn-buynow {
+                border: 1px solid var(--primary-color);
+                padding: 5px 10px;
+                text-align: center;
+                transition: all 0.2s ease-in-out 0s;
+                border-radius: 8px;
+                height: 36px;
+                font-size: 1.6rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                color: var(--primary-color);
+
+                &:hover {
+                    background-color: var(--second-color);
+                    border: 1px solid transparent;
+                    color: #fff;
+                }
+
+                & i {
+                    display: block;
+                    padding: 2px 0 0 6px;
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
 }

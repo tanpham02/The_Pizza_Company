@@ -1,0 +1,104 @@
+.home-products {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 23px 15px 200px;
+
+    & .promotions {
+        position: relative;
+
+        &__title {
+            color: #444;
+            font-size: 3rem;
+        }
+
+        & .slick-slider {
+            height: 475px !important;
+
+            & .slick-list {
+                height: 100%;
+
+                & .slick-track {
+                    height: 100%;
+
+
+                    & .slick-slide {
+                        &.slick-active {
+                            height: 100%;
+
+                            & div {
+                                // height: 100%;
+
+                                & h3 {
+                                    height: 100%;
+                                    margin: 0 15px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            & .slick-dots {
+                display: none !important;
+            }
+
+            & .slick-arrow {
+
+                &.slick-prev,
+                &.slick-next {
+                    display: inline-block !important;
+                    width: 60px !important;
+                    height: 60px !important;
+                    -webkit-transform: translate(0, -25%);
+                    -ms-transform: translate(0, -25%);
+                    transform: translate(0, -25%);
+                    cursor: pointer;
+                    border: 1px solid #eee;
+                    outline: none;
+                    border-radius: 50%;
+                    background-color: #fff !important;
+                    z-index: 3;
+                    text-align: center;
+                    transition: all ease-out 0.15s;
+
+                    &::before {
+                        display: none;
+                    }
+
+                    &::after {
+                        display: none;
+                    }
+
+                    & i {
+                        font-size: 17px;
+                        color: #ccc;
+                    }
+
+                    &:hover {
+                        background-color: var(--primary-color) !important;
+                        border: 1px solid var(--primary-color);
+
+                        & i {
+                            color: #fff;
+                        }
+                    }
+                }
+
+                &.slick-prev {
+                    position: absolute;
+                    top: 25%;
+                    left: -6.3% !important;
+                }
+
+                &.slick-next {
+                    position: absolute;
+                    top: 25%;
+                    right: -6.3% !important;
+                }
+            }
+
+        }
+    }
+}
