@@ -8,11 +8,11 @@ const Header = () => {
         <div className="header">
             <div className="header__container">
                 <div className="header__main">
-                    <div className="logo">
+                    <Link to='/' className="logo">
                         <Link to='/'>
                             <img src='../../../public/assets/img/logo/logo-main.png' alt="The Pizza Company" />
                         </Link>
-                    </div>
+                    </Link>
 
                     <div className="mid-header">
                         <div className="order">
@@ -52,6 +52,28 @@ const Header = () => {
                             </div>
                         </div>
                         <ul className="side-bar">
+                            <div className="nav__right">
+                                <div
+                                    className={`search`}
+                                    // onClick={handleShowInput}
+                                >
+                                    <i className="search__icon fa-solid fa-magnifying-glass"></i>
+                                    <div
+                                        className="search__input"
+                                        onClick={e => e.stopPropagation()}
+                                    >
+                                        <input type="text" placeholder='Tìm kiếm sản phẩm' />
+                                        <i className="fa-solid fa-magnifying-glass"></i>
+                                    </div>
+                                </div>
+
+                                <div className="carts">
+                                    <i className="carts__icon fa-solid fa-cart-shopping"></i>
+                                    <span className="carts__label">Giỏ hàng</span>
+                                    <span className="carts__amounts">0</span>
+                                </div>
+                            </div>
+
                             <div className="side-bar__icon">
                                 <span></span>
                                 <span></span>

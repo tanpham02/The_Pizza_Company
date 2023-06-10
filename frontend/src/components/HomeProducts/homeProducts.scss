@@ -1,8 +1,62 @@
+@mixin mobile {
+    @media (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin mobilePro {
+    @media (min-width: 577px) and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
+        @content;
+    }
+}
+
+@mixin tabletPro {
+    @media (min-width: 1024px) and (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
 .home-products {
     width: 1200px;
     max-width: 100%;
     margin: 0 auto;
     padding: 23px 15px 200px;
+
+    @include tablet() {
+        & {
+            width: 806px;
+        }
+    }
+
+    @include tabletPro() {
+        & {
+            width: 930px;
+        }
+    }
+
+    @include mobilePro() {
+        & {
+            width: 692px;
+        }
+    }
+
+    @include mobile() {
+        & {
+            width: 520px;
+        }
+    }
 
     & .promotions {
         position: relative;

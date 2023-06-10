@@ -36,9 +36,10 @@ const Slider = ({ sliders }) => {
             {
                 breakpoint: 1023,
                 settings: {
-                    centerPadding: '15px 0px 15px',
+                    centerPadding: '11px 0px 14px',
                     centerMode: true,
-                    slidesToShow: 1
+                    slidesToShow: 1,
+                    dots: true
                 }
             },
             {
@@ -46,7 +47,17 @@ const Slider = ({ sliders }) => {
                 settings: {
                     centerPadding: '10px',
                     centerMode: true,
-                    slidesToShow: 1
+                    slidesToShow: 1,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    centerPadding: '10px',
+                    centerMode: true,
+                    slidesToShow: 1,
+                    dots: true
                 }
             },
 
