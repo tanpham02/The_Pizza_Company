@@ -8,11 +8,33 @@ html {
     font-size: 62.5%;
     font-family: 'Nunito', sans-serif;
     scroll-behavior: 'smooth';
+
 }
 
 body {
     height: 100vh;
+
+    &::-webkit-scrollbar {
+        border-radius: 20px;
+        width: 13px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #fafafa;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #b5b3b3;
+        border-radius: 20px;
+        height: 10%;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #898989;
+    }
+
 }
+
 
 ul {
     list-style: none;
@@ -22,12 +44,20 @@ ul {
 $primary-color: #006a31;
 $second-color: #d50e15;
 $text-color: #111111;
+$mobile: 767px;
+$tablet: 1023px;
+$desktop: 1024px;
+$desktop-pro: 1366px;
 
 
 :root {
     --primary-color: #{$primary-color};
     --second-color: #{$second-color};
     --text-color: #{$text-color};
+
+    --mobile-width: #{$mobile};
+    --tablet-width: #{$tablet};
+    --desktop-width: #{$desktop};
 }
 
 .btn {

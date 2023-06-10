@@ -1,3 +1,27 @@
+@mixin mobile {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
+        @content;
+    }
+}
+
+@mixin tabletPro {
+    @media (min-width: 1024px) and (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
 .nav {
     height: 46px;
     border-radius: 20px;
@@ -17,6 +41,10 @@
             & .item {
                 margin-right: 3px;
 
+                &:first-child {
+                    margin-left: 6px;
+                }
+
                 &:hover {
                     border-radius: 20px;
                     background-color: #005226;
@@ -29,6 +57,12 @@
                     text-decoration: none;
                     font-weight: 500;
                     padding: 2px 15px;
+
+                    @include tabletPro() {
+                        & {
+                            padding: 2px 6px;
+                        }
+                    }
                 }
             }
         }
@@ -37,22 +71,76 @@
 
     &__right {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         flex: 1;
+        user-select: none;
 
         & .search {
+            width: 34px;
+            text-align: center;
+            padding: 8px 0;
+            margin-left: 12px;
+            cursor: pointer;
+            position: relative;
+
+            @include tabletPro() {
+                & {
+                    margin-left: 6px;
+                }
+            }
+
+            &.active {
+                & .search__input {
+                    display: flex;
+                }
+            }
 
             &__input {
+                width: 300px;
+                max-width: 300px;
+                height: 40px;
+                background-color: #fff;
+                border: 1px solid #00b041;
+                border-radius: 20px;
                 display: none;
+                align-items: center;
+                position: absolute;
+                bottom: -80%;
+                left: -260%;
+                transform: translate(-50%, 64%);
+                transition: 0.4s ease-in-out;
+
+                & input {
+                    outline: none;
+                    border: none;
+                    border-radius: 20px;
+                    height: 100%;
+                    display: flex;
+                    flex: 10;
+                    padding: 0 20px;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                    color: #888888;
+
+                    &::placeholder {
+                        opacity: 0.7;
+                        font-size: 1.44rem;
+                        font-family: 500;
+                    }
+                }
+
+                & i {
+                    display: flex;
+                    flex: 1;
+                    color: var(--primary-color);
+                    margin-right: 4px;
+                }
             }
 
             &__icon {
-                padding: 6px;
                 color: #fff;
                 font-size: 17px;
-                cursor: pointer;
-                margin-right: 30px;
             }
         }
 
@@ -67,6 +155,13 @@
             margin-right: 7px;
             display: flex;
             align-items: center;
+            cursor: pointer;
+
+            @include tabletPro() {
+                & {
+                    padding: 6px;
+                }
+            }
 
             &__icon {
                 font-size: 19px;

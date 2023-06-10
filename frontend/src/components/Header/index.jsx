@@ -33,22 +33,34 @@ const Header = () => {
                     </div>
 
                     <div className="right-header">
-                        <div className="icon">
-                            <i className="fa-regular fa-user"></i>
-                        </div>
-                        <div className="account">
-                            <Link to='/'>
-                                Đăng nhập
-                            </Link>
-                            <Link to='/'>
-                                Tạo tài khoản
-                            </Link>
-                        </div>
+                        <div className='contain'>
 
-                        <div className='language'>
-                            <img width={16} height={11} src="../../../public/assets/img/locale-lang/EN.png" alt="English" />
+                            <div className="icon">
+                                <i className="fa-regular fa-user"></i>
+                            </div>
+                            <div className="account">
+                                <Link to='/'>
+                                    Đăng nhập
+                                </Link>
+                                <Link to='/'>
+                                    Tạo tài khoản
+                                </Link>
+                            </div>
+
+                            <div className='language'>
+                                <img width={16} height={11} src="../../../public/assets/img/locale-lang/EN.png" alt="English" />
+                            </div>
                         </div>
+                        <ul className="side-bar">
+                            <div className="side-bar__icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </ul>
                     </div>
+
+
                 </div>
                 <Navigation />
             </div>

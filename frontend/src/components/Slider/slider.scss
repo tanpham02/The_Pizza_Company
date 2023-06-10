@@ -1,10 +1,61 @@
+@mixin mobile {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
+        @content;
+    }
+}
+
+@mixin tabletPro {
+    @media (min-width: 1024px) and (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
 .slider {
     max-width: 100%;
     overflow-x: hidden;
     padding-top: 145px;
 
+    @include tabletPro() {
+        & {
+            padding-top: 172px;
+        }
+    }
+
+
     & .slick-list {
         height: 444px;
+
+
+        @include tabletPro() {
+            & {
+                height: 414px;
+            }
+        }
+
+        @include tablet() {
+            & {
+                height: 278px;
+            }
+        }
+
+        @include mobile() {
+            & {
+                width: 438px;
+            }
+        }
+
 
         & .slick-track {
             opacity: 1;
@@ -52,6 +103,12 @@
         z-index: 3;
         text-align: center;
         transition: all ease-out 0.15s;
+
+        @include tabletPro() {
+            & {
+                display: none !important;
+            }
+        }
 
         &::before {
             display: none;

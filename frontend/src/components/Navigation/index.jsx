@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import './navigation.scss'
 
 const navs = [
@@ -50,6 +51,11 @@ const navs = [
 ]
 
 const Navigation = () => {
+    const [active, setActive] = useState(false)
+
+    const handleShowInput = () => {
+        setActive(!active)
+    }
 
     return (
         <nav className="nav">
@@ -66,9 +72,15 @@ const Navigation = () => {
             </div>
 
             <div className="nav__right">
-                <div className="search">
+                <div
+                    className={`search ${active ? 'active' : ''}`}
+                    onClick={handleShowInput}
+                >
                     <i className="search__icon fa-solid fa-magnifying-glass"></i>
-                    <div className="search__input">
+                    <div
+                        className="search__input"
+                        onClick={e => e.stopPropagation()}
+                    >
                         <input type="text" placeholder='Tìm kiếm sản phẩm' />
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </div>

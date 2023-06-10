@@ -24,6 +24,33 @@ const Slider = ({ sliders }) => {
         centerMode: true,
         autoplay: true,
         infinite: true,
+        responsive: [
+            {
+                breakpoint: 1199,
+                settings: {
+                    centerPadding: '15px 0px 15px',
+                    centerMode: true,
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 1023,
+                settings: {
+                    centerPadding: '15px 0px 15px',
+                    centerMode: true,
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    centerPadding: '10px',
+                    centerMode: true,
+                    slidesToShow: 1
+                }
+            },
+
+        ],
         centerPadding: "200px", // 160px
         slidesToShow: 1,
         speed: 1300,
