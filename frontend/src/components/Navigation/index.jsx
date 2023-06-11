@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import './navigation.scss'
 
-const navs = [
+export const navs = [
     {
         id: 1,
         name: 'Khuyến mãi',

@@ -1,34 +1,4 @@
-@mixin mobile {
-    @media (max-width: 576px) {
-        @content;
-    }
-}
-
-@mixin mobilePro {
-    @media (min-width: 577px) and (max-width: 767px) {
-        @content;
-    }
-}
-
-@mixin tablet {
-    @media (min-width: 768px) and (max-width: 1023px) {
-        @content;
-    }
-}
-
-@mixin tabletPro {
-    @media (min-width: 1024px) and (max-width: 1199px) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (min-width: 1200px) {
-        @content;
-    }
-}
-
-
+@import '../../responsive.scss';
 
 .header {
     position: fixed;
@@ -124,7 +94,8 @@
                     & {
                         background-image: url(../../../public/assets/img/logo/logo-main-transparent.png);
                         background-repeat: no-repeat;
-                        padding-top: 35px;
+                        padding-top: 10%;
+                        background-size: contain;
                         cursor: pointer;
                     }
 
@@ -205,45 +176,98 @@
 
 
                 & .address {
-                    height: 35px;
-                    line-height: 35px;
-                    border: 1px solid #919191;
-                    border-radius: 17px;
-                    padding-left: 18px;
-                    display: flex;
-                    align-items: center;
+                    display: none;
 
-                    @include tabletPro() {
-                        & {
-                            margin-bottom: 6px;
-                        }
-                    }
-
-
-                    &:focus-within {
-                        border: 1px solid var(--primary-color);
-                    }
-
-                    & input {
-                        border: none;
-                        outline: none;
-                        padding-left: 14px;
-                        color: #8c8c8c;
-                        vertical-align: middle;
-                        font-size: 1.5rem;
-                        height: 100%;
-                        line-height: 100%;
+                    &.active {
+                        height: 35px;
+                        line-height: 35px;
+                        border: 1px solid #919191;
                         border-radius: 17px;
+                        padding-left: 18px;
+                        display: flex;
+                        align-items: center;
+
+                        @include tabletPro() {
+                            & {
+                                margin-bottom: 6px;
+                            }
+                        }
 
 
-                        &::placeholder {
-                            opacity: 0.9;
+                        &:focus-within {
+                            border: 1px solid var(--primary-color);
+                        }
+
+                        & input {
+                            border: none;
+                            outline: none;
+                            padding-left: 14px;
+                            color: #8c8c8c;
+                            vertical-align: middle;
+                            font-size: 1.5rem;
+                            height: 100%;
+                            line-height: 100%;
+                            border-radius: 17px;
+
+
+                            &::placeholder {
+                                opacity: 0.9;
+                            }
+                        }
+
+                        & i {
+                            font-size: 18px;
+                            color: #8c8c8c;
+                        }
+
+                        & .address__lists {
+                            display: block !important;
+                            position: absolute;
+                            top: 35px;
+                            left: 0;
+                            right: 0;
+                            background-color: #fff;
+                            overflow: auto;
+                            max-height: 380px;
+                            border-radius: 3px;
+                            cursor: pointer;
+
+                            &::-webkit-scrollbar {
+                                width: 10px;
+                            }
+
+                            &::-webkit-scrollbar-thumb {
+                                border-radius: 20px;
+                                background-color: #c1c1c1;
+                                height: 50%;
+
+                                &:hover {
+                                    background-color: #b5b4b4;
+                                }
+                            }
+
+
+
+                            & .address__item {
+                                border-bottom: 1px solid #e1e1e1;
+                                border-top: 0;
+                                background: #fff;
+                                padding: 10px 15px;
+                                color: black;
+                                opacity: 0.9;
+                                font-size: 1.6rem;
+                                line-height: 2.2rem;
+
+                                &:hover {
+                                    opacity: 1;
+                                    background: rgba(0, 106, 49, .1) !important;
+                                }
+                            }
                         }
                     }
 
-                    & i {
-                        font-size: 18px;
-                        color: #8c8c8c;
+                    &__lists {
+                        display: none;
                     }
                 }
             }
@@ -254,18 +278,6 @@
                 align-items: center;
                 height: 40px;
                 margin-right: 6px;
-
-                @include tablet() {
-                    & {
-                        justify-content: flex-end;
-                    }
-                }
-
-                @include tabletPro() {
-                    & {
-                        justify-content: space-between;
-                    }
-                }
 
                 & .contain {
                     display: flex;
@@ -377,153 +389,6 @@
                     }
                 }
 
-                @include tabletPro() {
-                    & .language {
-                        display: none !important;
-                    }
-
-                    & .side-bar {
-                        display: block !important;
-                        cursor: pointer;
-
-                        &__icon {
-                            width: 32px;
-                            height: 32px;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-around;
-
-                            & span {
-                                width: 100%;
-                                height: 4px;
-                                background-color: var(--primary-color);
-                            }
-                        }
-
-                        & .nav__right {
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            flex: 1;
-                            user-select: none;
-
-                            @include tabletPro() {
-                                & {
-                                    display: none !important;
-                                }
-                            }
-
-
-                            & .search {
-                                width: 34px;
-                                text-align: center;
-                                padding: 8px 0;
-                                margin-left: 12px;
-                                cursor: pointer;
-                                position: relative;
-
-                                &.active {
-                                    & .search__input {
-                                        display: flex;
-                                    }
-                                }
-
-                                &__input {
-                                    width: 300px;
-                                    max-width: 300px;
-                                    height: 40px;
-                                    background-color: #fff;
-                                    border: 1px solid #00b041;
-                                    border-radius: 20px;
-                                    display: none;
-                                    align-items: center;
-                                    position: absolute;
-                                    bottom: -80%;
-                                    left: -260%;
-                                    transform: translate(-50%, 64%);
-                                    transition: 0.4s ease-in-out;
-
-                                    & input {
-                                        outline: none;
-                                        border: none;
-                                        border-radius: 20px;
-                                        height: 100%;
-                                        display: flex;
-                                        flex: 10;
-                                        padding: 0 20px;
-                                        font-size: 1.4rem;
-                                        font-weight: 500;
-                                        color: #888888;
-
-                                        &::placeholder {
-                                            opacity: 0.7;
-                                            font-size: 1.44rem;
-                                            font-family: 500;
-                                        }
-                                    }
-
-                                    & i {
-                                        display: flex;
-                                        flex: 1;
-                                        color: var(--primary-color);
-                                        margin-right: 4px;
-                                    }
-                                }
-
-                                &__icon {
-                                    color: var(--primary-color) !important;
-                                    font-size: 17px;
-                                }
-                            }
-
-                            & .carts {
-                                min-width: auto;
-                                height: 32px;
-                                line-height: 32px;
-                                background-color: #fff;
-                                border-radius: 16px;
-                                color: var(--primary-color);
-                                padding: 0 10px;
-                                display: flex;
-                                align-items: center;
-                                cursor: pointer;
-
-
-                                @include tabletPro() {
-                                    & {
-                                        display: none;
-                                    }
-                                }
-
-
-                                &__icon {
-                                    font-size: 19px;
-                                }
-
-                                &__label {
-                                    font-size: 1.5rem;
-                                    font-weight: 500;
-                                    padding: 0 8px 0 6px;
-                                }
-
-                                &__amounts {
-                                    display: inline-block;
-                                    font-size: 1.6rem;
-                                    color: #fff;
-                                    background-color: var(--second-color);
-                                    width: 24px;
-                                    height: 24px;
-                                    border-radius: 50%;
-                                    text-align: center;
-                                    font-weight: 500;
-                                    line-height: 24px;
-                                }
-                            }
-                        }
-
-                    }
-                }
-
                 @include tablet() {
                     & .language {
                         display: none !important;
@@ -533,6 +398,16 @@
                         display: flex !important;
                         cursor: pointer;
 
+                        &.show {
+                            & .side-bar__icon {
+                                & span {
+                                    &.span-middle {
+                                        opacity: 0 !important;
+                                    }
+                                }
+                            }
+                        }
+
                         &__icon {
                             width: 32px;
                             height: 32px;
@@ -541,10 +416,17 @@
                             justify-content: space-around;
 
                             & span {
+                                &.span-middle {
+                                    opacity: 1;
+                                }
+                            }
+
+                            & span {
                                 width: 100%;
                                 height: 4px;
                                 background-color: var(--primary-color);
                             }
+
                         }
 
                         & .nav__right {
@@ -630,7 +512,7 @@
                                 background-color: #fff;
                                 border-radius: 16px;
                                 color: var(--primary-color);
-                                padding: 0 10px;
+                                padding: 0 14px;
                                 display: flex;
                                 align-items: center;
                                 cursor: pointer;
@@ -674,6 +556,16 @@
                         display: flex !important;
                         cursor: pointer;
 
+                        &.show {
+                            & .side-bar__icon {
+                                & span {
+                                    &.span-middle {
+                                        opacity: 0 !important;
+                                    }
+                                }
+                            }
+                        }
+
                         &__icon {
                             width: 32px;
                             height: 32px;
@@ -682,10 +574,17 @@
                             justify-content: space-around;
 
                             & span {
+                                &.span-middle {
+                                    opacity: 1;
+                                }
+                            }
+
+                            & span {
                                 width: 100%;
                                 height: 4px;
                                 background-color: var(--primary-color);
                             }
+
                         }
 
                         & .nav__right {
@@ -771,7 +670,7 @@
                                 background-color: #fff;
                                 border-radius: 16px;
                                 color: var(--primary-color);
-                                padding: 0 10px;
+                                padding: 0 14px;
                                 display: flex;
                                 align-items: center;
                                 cursor: pointer;
@@ -815,12 +714,28 @@
                         display: flex !important;
                         cursor: pointer;
 
+                        &.show {
+                            & .side-bar__icon {
+                                & span {
+                                    &.span-middle {
+                                        opacity: 0 !important;
+                                    }
+                                }
+                            }
+                        }
+
                         &__icon {
                             width: 32px;
                             height: 32px;
                             display: flex;
                             flex-direction: column;
                             justify-content: space-around;
+
+                            & span {
+                                &.span-middle {
+                                    opacity: 1;
+                                }
+                            }
 
                             & span {
                                 width: 100%;
@@ -924,7 +839,7 @@
                                 background-color: #fff;
                                 border-radius: 16px;
                                 color: var(--primary-color);
-                                padding: 0 10px;
+                                padding: 0 14px;
                                 display: flex;
                                 align-items: center;
                                 cursor: pointer;
@@ -1015,6 +930,4 @@
 
         }
     }
-
-
 }

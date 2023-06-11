@@ -17,6 +17,9 @@ body {
     max-width: 100%;
 }
 
+.App {
+    position: relative;
+}
 
 ul {
     list-style: none;
@@ -46,6 +49,10 @@ $desktop-pro: 1366px;
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+.menu {
+    display: none;
 }
 
 

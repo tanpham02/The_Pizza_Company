@@ -1,32 +1,4 @@
-@mixin mobile {
-    @media (max-width: 576px) {
-        @content;
-    }
-}
-
-@mixin mobilePro {
-    @media (min-width: 577px) and (max-width: 767px) {
-        @content;
-    }
-}
-
-@mixin tablet {
-    @media (min-width: 768px) and (max-width: 1023px) {
-        @content;
-    }
-}
-
-@mixin tabletPro {
-    @media (min-width: 1024px) and (max-width: 1199px) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (min-width: 1200px) {
-        @content;
-    }
-}
+@import '../../responsive.scss';
 
 .home-products {
     width: 1200px;
