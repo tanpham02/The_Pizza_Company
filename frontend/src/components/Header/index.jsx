@@ -5,12 +5,12 @@ import { useState, useEffect } from 'react'
 import Menu from '../Menu'
 import axios from 'axios'
 
-
 const Header = () => {
     const [active, setActive] = useState(false)
     const [showSidebar, setShowSidebar] = useState(false)
-    const [address, setAddress] = useState([])
     const [valueAddress, setValueAddress] = useState('')
+    const [addressSystems, setAddressSystems] = useState([])
+    const [showListAdd, setShowListAdd] = useState(true)
 
     const handleShowInput = () => {
         setActive(!active)
@@ -20,37 +20,48 @@ const Header = () => {
         setShowSidebar(!showSidebar)
     }
 
-    const handleChangeOrderType = () => {
-        const btnOrder = document.querySelectorAll('.btn-order')
-        const inputAddress = document.querySelectorAll('.mid-header .address')
-        btnOrder.forEach((btn, index) => {
-            btn.classList.contains('active') ?
-                btn.classList.remove('active') :
-                btn.classList.add('active')
+    useEffect(() => {
+        const getAllAddress = async () => {
+            const res = await axios('http://localhost:5001/api/storesSystem')
+            const addressLists = await (res.data)
+                .filter(address => address.name.toLowerCase().includes(valueAddress.trim().toLowerCase()))
+            setAddressSystems(addressLists)
+        }
+        getAllAddress()
+    }, [valueAddress])
 
-            inputAddress[index].classList.contains('active') ?
-                inputAddress[index].classList.remove('active') :
-                inputAddress[index].classList.add('active')
+    const handleChangeOrderType = (e) => {  
+        const btnOrder = document.querySelectorAll('.mid-header .btn-order')
+        const inputAddress = document.querySelectorAll('.mid-header .address')
+
+        btnOrder.forEach(btn => {
+            if (btn.closest('.active')) {
+                btn.classList.remove('active')
+                e.target.classList.add('active')
+
+                if (btn.closest('.order__to-get')) {
+                    inputAddress.forEach(input =>
+                        input.classList.contains('active') ?
+                            input.classList.remove('active') :
+                            input.classList.add('active')
+                    )
+                }
+            }
         })
     }
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await axios('http://localhost:5001/api/storesSystem')
-            const data = await res.data
-            setAddress(data)
-        }
-        fetchData()
-    }, [])
-
-    const handleSetAddress = name => {
-        setValueAddress(name)
-    }
-
-    const handleChangeAddress = e => {
+    const handleFindAddress = (e) => {
         setValueAddress(e.target.value)
+        const addressRemaning = addressSystems.filter(address =>
+            address.name.toLowerCase().includes(e.target.value.toLowerCase())
+        )
+        if (addressRemaning.length) {
+            setAddressSystems(addressRemaning)
+            setShowListAdd(true)
+        } else {
+            setShowListAdd(false)
+        }
     }
-
 
 
     return (
@@ -92,22 +103,22 @@ const Header = () => {
                                     value={valueAddress}
                                     type="text"
                                     placeholder='Nhập cửa hàng'
-                                    onChange={handleChangeAddress}
+                                    onChange={handleFindAddress}
                                 />
 
-                                <ul className='address__lists' >
-                                    {address.map(addressItem =>
-                                        <li
-                                            key={addressItem.id}
-                                            className='address__item'
-                                            onClick={() => handleSetAddress(addressItem.name)}
-                                        >
-                                            {addressItem.name}
-                                        </li>
-                                    )}
-
-
-                                </ul>
+                                {showListAdd &&
+                                    <ul className='address__lists' >
+                                        {addressSystems.map(addressItem =>
+                                            <li
+                                                key={addressItem.id}
+                                                className='address__item'
+                                                onClick={() => setValueAddress(addressItem.name)}
+                                            >
+                                                {addressItem.name}
+                                            </li>
+                                        )}
+                                    </ul>
+                                }
                             </div>
                         </div>
 
