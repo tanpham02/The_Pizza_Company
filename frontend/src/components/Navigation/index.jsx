@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import './navigation.scss'
+import Cart from '../Cart'
 
 export const navs = [
     {
@@ -86,11 +87,14 @@ const Navigation = () => {
                     </div>
                 </div>
 
-                <div className="carts">
-                    <i className="carts__icon fa-solid fa-cart-shopping"></i>
+                <Link to='/cart' className="carts">
+                    <i className="carts__icon fa-solid fa-cart-shopping">
+                        <span></span>
+                    </i>
                     <span className="carts__label">Giỏ hàng</span>
                     <span className="carts__amounts">0</span>
-                </div>
+                    <Cart />
+                </Link>
             </div>
         </nav>
     )

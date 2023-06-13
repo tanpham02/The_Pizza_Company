@@ -11,7 +11,16 @@
     @include tabletPro() {
         & {
             margin-bottom: 28px;
+
         }
+    }
+
+    @include tablet() {
+        box-shadow: 1px 0 20px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    @include mobilePro() {
+        box-shadow: 1px 0 20px 0 rgba(0, 0, 0, 0.15);
     }
 
     @include mobile() {
@@ -153,6 +162,8 @@
                         padding: 0 16px;
                         color: var(--text-color);
                         font-size: 1.4rem;
+                        transition: all ease-in-out 0.2s;
+
 
                         @include tablet() {
                             & {
@@ -175,6 +186,10 @@
 
                 & .address {
                     display: none;
+
+                    & i {
+                        margin-bottom: 4px;
+                    }
 
                     &.active {
                         height: 35px;
@@ -243,8 +258,6 @@
                                     background-color: #b5b4b4;
                                 }
                             }
-
-
 
                             & .address__item {
                                 border-bottom: 1px solid #e1e1e1;
@@ -334,9 +347,6 @@
                     align-items: center;
                     position: relative;
 
-
-
-
                     &::after {
                         content: "";
                         position: absolute;
@@ -351,7 +361,6 @@
                             width: 1.6px;
                             height: calc(100% + 2px);
                         }
-
                     }
 
                     & a {
@@ -399,6 +408,8 @@
                         &.show {
                             & .side-bar__icon {
                                 & span {
+                                    transition: all ease-in-out 0.15s;
+
                                     &.span-middle {
                                         opacity: 0 !important;
                                     }
@@ -557,6 +568,8 @@
                         &.show {
                             & .side-bar__icon {
                                 & span {
+                                    transition: all ease-in-out 0.15s;
+
                                     &.span-middle {
                                         opacity: 0 !important;
                                     }
@@ -714,9 +727,29 @@
 
                         &.show {
                             & .side-bar__icon {
+                                position: relative;
+
                                 & span {
                                     &.span-middle {
                                         opacity: 0 !important;
+                                    }
+
+                                    &.span-left {
+                                        transition: all ease-out 0.2s;
+                                        transform: rotate(40deg);
+                                        background-color: #fff;
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 0px;
+                                    }
+
+                                    &.span-right {
+                                        transition: all ease-out 0.2s;
+                                        transform: rotate(-40deg);
+                                        background-color: #fff;
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 0px;
                                     }
                                 }
                             }
