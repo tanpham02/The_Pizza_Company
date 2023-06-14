@@ -64,13 +64,13 @@
 
         @include tablet() {
             & {
-                height: 374.8px;
+                height: 276.8px;
             }
         }
 
         @include mobilePro() {
             & {
-                height: 260px;
+                height: 230px;
             }
         }
 

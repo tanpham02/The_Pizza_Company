@@ -37,10 +37,22 @@
         &__title {
             color: #444;
             font-size: 3rem;
+
+            @include tablet {
+                font-size: 2.8rem;
+            }
+
+            @include mobilePro {
+                font-size: 2.6rem;
+            }
+
+            @include mobile {
+                font-size: 2.4rem;
+            }
         }
 
         & .slick-slider {
-            height: 475px !important;
+            min-height: 475px !important;
 
             & .slick-list {
                 height: 100%;
@@ -70,63 +82,142 @@
             & .slick-dots {
                 display: none !important;
             }
+        }
 
-            & .slick-arrow {
 
-                &.slick-prev,
-                &.slick-next {
-                    display: inline-block !important;
-                    width: 60px !important;
-                    height: 60px !important;
-                    -webkit-transform: translate(0, -25%);
-                    -ms-transform: translate(0, -25%);
-                    transform: translate(0, -25%);
-                    cursor: pointer;
-                    border: 1px solid #eee;
-                    outline: none;
-                    border-radius: 50%;
-                    background-color: #fff !important;
-                    z-index: 3;
-                    text-align: center;
-                    transition: all ease-out 0.15s;
+        & button.slick-prev-custom,
+        & button.slick-next-custom {
+            display: inline-block !important;
+            width: 60px !important;
+            height: 60px !important;
+            -webkit-transform: translate(0, -25%);
+            -ms-transform: translate(0, -25%);
+            transform: translate(0, -25%);
+            cursor: pointer;
+            border: 1px solid #eee;
+            outline: none;
+            border-radius: 50%;
+            background-color: #fff !important;
+            z-index: 3;
+            text-align: center;
+            transition: all ease-out 0.15s;
+            position: absolute;
+            top: 35%;
 
-                    &::before {
-                        display: none;
-                    }
-
-                    &::after {
-                        display: none;
-                    }
-
-                    & i {
-                        font-size: 17px;
-                        color: #ccc;
-                    }
-
-                    &:hover {
-                        background-color: var(--primary-color) !important;
-                        border: 1px solid var(--primary-color);
-
-                        & i {
-                            color: #fff;
-                        }
-                    }
-                }
-
-                &.slick-prev {
-                    position: absolute;
-                    top: 25%;
-                    left: -6.3% !important;
-                }
-
-                &.slick-next {
-                    position: absolute;
-                    top: 25%;
-                    right: -6.3% !important;
-                }
+            @include desktop {
+                width: 50px !important;
+                height: 50px !important;
             }
 
+            @include mobilePro {
+                width: 30px !important;
+                height: 30px !important;
+                border: 1px solid #666;
+            }
+
+            @include mobile {
+                width: 30px !important;
+                height: 30px !important;
+                border: 1px solid #666;
+            }
+
+            @include tablet {
+                display: none !important;
+            }
+
+            &::before {
+                display: none;
+            }
+
+            &::after {
+                display: none;
+            }
+
+            & i {
+                font-size: 17px;
+                color: #ccc;
+
+                @include mobilePro {
+                    color: #666;
+                    font-size: 13px;
+                }
+
+                @include mobile {
+                    color: #666;
+                    font-size: 13px;
+                }
+
+            }
+
+            &:hover {
+                background-color: var(--primary-color) !important;
+                border: 1px solid var(--primary-color);
+
+                & i {
+                    color: #fff;
+                }
+
+                @include mobilePro {
+                    background-color: #fff !important;
+                    border: 1px solid #666;
+
+                    & i {
+                        color: #666;
+                    }
+                }
+
+                @include mobile {
+                    background-color: #fff !important;
+                    border: 1px solid #666;
+
+                    & i {
+                        color: #666;
+                    }
+                }
+            }
         }
+
+        & button.slick-prev-custom {
+            left: -6.3% !important;
+
+            @include desktop {
+                left: -4.3% !important;
+            }
+
+            @include mobilePro {
+                position: absolute;
+                top: 1.5%;
+                left: 85% !important;
+            }
+
+            @include mobile {
+                position: absolute;
+                top: 1.5%;
+                left: 78% !important;
+            }
+        }
+
+        & button.slick-next-custom {
+            right: -6.3% !important;
+
+            @include desktop {
+                right: -4.3% !important;
+            }
+
+            @include mobilePro {
+                position: absolute;
+                top: 1.5%;
+                right: 2% !important;
+            }
+
+            @include mobile {
+                position: absolute;
+                top: 1.5%;
+                right: 0% !important;
+            }
+        }
+
+
     }
 
 }

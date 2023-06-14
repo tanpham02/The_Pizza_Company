@@ -1,3 +1,5 @@
+@import './responsive.scss';
+
 * {
     margin: 0;
     padding: 0;
@@ -17,9 +19,6 @@ body {
     max-width: 100%;
 }
 
-// .App {
-//     position: relative;
-// }
 
 ul {
     list-style: none;
@@ -60,8 +59,6 @@ $desktop-pro: 1366px;
 .products {
     max-width: 100%;
 
-
-
     &__container {
         display: flex !important;
         justify-content: center;
@@ -71,6 +68,10 @@ $desktop-pro: 1366px;
         padding: 0 15px;
         border: none;
         outline: none;
+
+        @include mobile() {
+            flex-direction: row;
+        }
 
 
         &:hover {
@@ -85,11 +86,26 @@ $desktop-pro: 1366px;
             transition: all ease-in-out 0.3s;
             padding: 5px;
             vertical-align: middle;
+            width: 240px;
+            height: 240px;
+
+            @include mobile() {
+                display: flex;
+                flex: 1;
+                width: 107px;
+                height: 107px;
+            }
 
             &:hover {
                 transform: rotate(10deg) !important;
 
             }
+        }
+
+        & .products__introduced {
+            display: flex;
+            flex: 2;
+            flex-direction: column;
         }
 
         & .products__contents {
@@ -110,6 +126,7 @@ $desktop-pro: 1366px;
                 letter-spacing: 1px;
                 margin: 14px 0 12px;
                 text-align: left;
+                height: 36px;
 
                 &:hover {
                     color: var(--primary-color);
@@ -130,6 +147,7 @@ $desktop-pro: 1366px;
                 font-weight: 500;
                 letter-spacing: -0.2px;
                 line-height: 1.85rem;
+                height: 55.5px;
             }
         }
 
@@ -138,6 +156,7 @@ $desktop-pro: 1366px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
 
             & .footer__prices {
                 font-size: 1.3rem;
@@ -198,8 +217,9 @@ $desktop-pro: 1366px;
 @keyframes fadeIn {
     0% {
         opacity: 0;
-    }100% {
+    }
+
+    100% {
         opacity: 1;
     }
 }
-

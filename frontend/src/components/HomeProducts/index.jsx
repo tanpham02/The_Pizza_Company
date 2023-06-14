@@ -1,20 +1,49 @@
 import { Link } from 'react-router-dom'
 import './homeProducts.scss'
 import Promotions from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllPizzaThunk } from '../Pizza/pizzaSlice';
+import { pizzaSelector } from '../../redux/selectors';
 
 const HomeProducts = () => {
     const slickRef = useRef()
+    const dispatch = useDispatch()
+    const pizzaLists = useSelector(pizzaSelector)
     const settings = {
         dots: true,
         infinite: true,
-        autoplay: true,
+        // autoplay: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1023,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                }
+            },
+        ],
     }
+
+    useEffect(() => {
+        dispatch(getAllPizzaThunk())
+    }, [])
 
 
     const handlePrevSlider = () => {
@@ -29,10 +58,10 @@ const HomeProducts = () => {
         const btnSlick = document.querySelectorAll('.promotions .slick-slider button')
         btnSlick.forEach(btn => {
             if (btn.closest('.slick-arrow.slick-prev')) {
-                btn.innerHTML = '<i class="fa-solid fa-arrow-left"></i>'
+                btn.remove()
             }
             if (btn.closest('.slick-arrow.slick-next')) {
-                btn.innerHTML = '<i class="fa-solid fa-arrow-right"></i>'
+                btn.remove()
             }
         })
     }, [])
@@ -41,312 +70,63 @@ const HomeProducts = () => {
         const nodes = document.querySelectorAll('.promotions .slick-slider button[tabindex="-1"]')
         nodes.forEach(node => {
             const parent = node.parentElement
-            parent.parentElement.remove()
+            parent.parentElement.style.display = 'none'
         })
     }, [])
-
 
     return (
         <div className='home-products'>
             <div className="products promotions">
-                <h3 className='promotions__title'>Khuyến mãi, Combo</h3>
+                <h3 className='promotions__title'>Pizza - Hơn 18 loại</h3>
+                <button
+                    onClick={handlePrevSlider}
+                    className='slick-prev-custom'
+                >
+                    <i className="fa-solid fa-arrow-left"></i>
+                </button>
                 <Promotions ref={slickRef} {...settings}>
+                    {pizzaLists.map(pizza => (
+                        <>
+                            <div className='products__container'>
+                                <img src={pizza.urlImage} alt={pizza.name} />
+                                <div className="products__introduced">
+                                    <div className="products__contents">
+                                        <Link to='#' className="contents__name">{pizza.name}</Link>
+                                        <span className="contents__desc">
+                                            {pizza.information}
+                                        </span>
+                                    </div>
+                                    <div className="products__footer">
+                                        <div className="footer__prices">
+                                            <label>
+                                                Giá chỉ từ
+                                                <span className="prices__old">
+                                                    586.000đ
+                                                </span>
+                                            </label>
+                                            <span className="prices__actual">
+                                                {Number(pizza.prices).toLocaleString('VI')}đ
+                                            </span>
+                                        </div>
 
-                    <div className='products__container'>
-                        <img width={240} height={240} src="/assets/img/products/pizza/pizza-5-loai-thit-dac-biet-rau-cu.png" alt="" />
-                        <div className="products__contents">
-                            <Link to='#' className="contents__name">Mua 1 Tặng 1 Pizza size M - Thứ 3</Link>
-                            <span className="contents__desc">
-                                Tiết kiệm: 42% (phù hợp cho 2-3 người).
-                                Combo sẽ bao gồm: 1 Pizza Classic, cỡ Nhỏ.
-                                1 Mỳ Ý bất kỳ .
-                                1 Khoai tây chiên/ Khoai tây chiên lắc phô mai/ Bánh mì que nướng/ Bánh mỳ bơ tỏi.
-                                1 Bánh Phô mai xoắn/ Gà Giòn Không Xương/ Gà Giòn Không Xương Lắc Phô Mai/ Gà Popcorn/ Gà Popcorn Lắc Phô Mai.
-                            </span>
-                        </div>
-                        <div className="products__footer">
-                            <div className="footer__prices">
-                                <label>
-                                    Giá chỉ từ
-                                    <span className="prices__old">
-                                        586.000đ
-                                    </span>
-                                </label>
-                                <span className="prices__actual">
-                                    459.000đ
-                                </span>
+                                        <button className='btn btn-buynow'>
+                                            Mua ngay
+                                            <i className="fa-solid fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-
-                            <button className='btn btn-buynow'>
-                                Mua ngay
-                                <i className="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div className='products__container'>
-                        <img width={240} height={240} src="/assets/img/products/pizza/pizza-5-loai-thit-dac-biet-rau-cu.png" alt="" />
-                        <div className="products__contents">
-                            <Link to='#' className="contents__name">Mua 1 Tặng 1 Pizza size M - Thứ 3</Link>
-                            <span className="contents__desc">
-                                Tiết kiệm: 42% (phù hợp cho 2-3 người).
-                                Combo sẽ bao gồm: 1 Pizza Classic, cỡ Nhỏ.
-                                1 Mỳ Ý bất kỳ .
-                                1 Khoai tây chiên/ Khoai tây chiên lắc phô mai/ Bánh mì que nướng/ Bánh mỳ bơ tỏi.
-                                1 Bánh Phô mai xoắn/ Gà Giòn Không Xương/ Gà Giòn Không Xương Lắc Phô Mai/ Gà Popcorn/ Gà Popcorn Lắc Phô Mai.
-                            </span>
-                        </div>
-                        <div className="products__footer">
-                            <div className="footer__prices">
-                                <label>
-                                    Giá chỉ từ
-                                    <span className="prices__old">
-                                        586.000đ
-                                    </span>
-                                </label>
-                                <span className="prices__actual">
-                                    459.000đ
-                                </span>
-                            </div>
-
-                            <button className='btn btn-buynow'>
-                                Mua ngay
-                                <i className="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div className='products__container'>
-                        <img width={240} height={240} src="/assets/img/products/pizza/pizza-5-loai-thit-dac-biet-rau-cu.png" alt="" />
-                        <div className="products__contents">
-                            <Link to='#' className="contents__name">Mua 1 Tặng 1 Pizza size M - Thứ 3</Link>
-                            <span className="contents__desc">
-                                Tiết kiệm: 42% (phù hợp cho 2-3 người).
-                                Combo sẽ bao gồm: 1 Pizza Classic, cỡ Nhỏ.
-                                1 Mỳ Ý bất kỳ .
-                                1 Khoai tây chiên/ Khoai tây chiên lắc phô mai/ Bánh mì que nướng/ Bánh mỳ bơ tỏi.
-                                1 Bánh Phô mai xoắn/ Gà Giòn Không Xương/ Gà Giòn Không Xương Lắc Phô Mai/ Gà Popcorn/ Gà Popcorn Lắc Phô Mai.
-                            </span>
-                        </div>
-                        <div className="products__footer">
-                            <div className="footer__prices">
-                                <label>
-                                    Giá chỉ từ
-                                    <span className="prices__old">
-                                        586.000đ
-                                    </span>
-                                </label>
-                                <span className="prices__actual">
-                                    459.000đ
-                                </span>
-                            </div>
-
-                            <button className='btn btn-buynow'>
-                                Mua ngay
-                                <i className="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div className='products__container'>
-                        <img width={240} height={240} src="/assets/img/products/pizza/pizza-5-loai-thit-dac-biet-rau-cu.png" alt="" />
-                        <div className="products__contents">
-                            <Link to='#' className="contents__name">Mua 1 Tặng 1 Pizza size M - Thứ 3</Link>
-                            <span className="contents__desc">
-                                Tiết kiệm: 42% (phù hợp cho 2-3 người).
-                                Combo sẽ bao gồm: 1 Pizza Classic, cỡ Nhỏ.
-                                1 Mỳ Ý bất kỳ .
-                                1 Khoai tây chiên/ Khoai tây chiên lắc phô mai/ Bánh mì que nướng/ Bánh mỳ bơ tỏi.
-                                1 Bánh Phô mai xoắn/ Gà Giòn Không Xương/ Gà Giòn Không Xương Lắc Phô Mai/ Gà Popcorn/ Gà Popcorn Lắc Phô Mai.
-                            </span>
-                        </div>
-                        <div className="products__footer">
-                            <div className="footer__prices">
-                                <label>
-                                    Giá chỉ từ
-                                    <span className="prices__old">
-                                        586.000đ
-                                    </span>
-                                </label>
-                                <span className="prices__actual">
-                                    459.000đ
-                                </span>
-                            </div>
-
-                            <button className='btn btn-buynow'>
-                                Mua ngay
-                                <i className="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div className='products__container'>
-                        <img width={240} height={240} src="/assets/img/products/pizza/pizza-5-loai-thit-dac-biet-rau-cu.png" alt="" />
-                        <div className="products__contents">
-                            <Link to='#' className="contents__name">Mua 1 Tặng 1 Pizza size M - Thứ 3</Link>
-                            <span className="contents__desc">
-                                Tiết kiệm: 42% (phù hợp cho 2-3 người).
-                                Combo sẽ bao gồm: 1 Pizza Classic, cỡ Nhỏ.
-                                1 Mỳ Ý bất kỳ .
-                                1 Khoai tây chiên/ Khoai tây chiên lắc phô mai/ Bánh mì que nướng/ Bánh mỳ bơ tỏi.
-                                1 Bánh Phô mai xoắn/ Gà Giòn Không Xương/ Gà Giòn Không Xương Lắc Phô Mai/ Gà Popcorn/ Gà Popcorn Lắc Phô Mai.
-                            </span>
-                        </div>
-                        <div className="products__footer">
-                            <div className="footer__prices">
-                                <label>
-                                    Giá chỉ từ
-                                    <span className="prices__old">
-                                        586.000đ
-                                    </span>
-                                </label>
-                                <span className="prices__actual">
-                                    459.000đ
-                                </span>
-                            </div>
-
-                            <button className='btn btn-buynow'>
-                                Mua ngay
-                                <i className="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div className='products__container'>
-                        <img width={240} height={240} src="/assets/img/products/pizza/pizza-5-loai-thit-dac-biet-rau-cu.png" alt="" />
-                        <div className="products__contents">
-                            <Link to='#' className="contents__name">Mua 1 Tặng 1 Pizza size M - Thứ 3</Link>
-                            <span className="contents__desc">
-                                Tiết kiệm: 42% (phù hợp cho 2-3 người).
-                                Combo sẽ bao gồm: 1 Pizza Classic, cỡ Nhỏ.
-                                1 Mỳ Ý bất kỳ .
-                                1 Khoai tây chiên/ Khoai tây chiên lắc phô mai/ Bánh mì que nướng/ Bánh mỳ bơ tỏi.
-                                1 Bánh Phô mai xoắn/ Gà Giòn Không Xương/ Gà Giòn Không Xương Lắc Phô Mai/ Gà Popcorn/ Gà Popcorn Lắc Phô Mai.
-                            </span>
-                        </div>
-                        <div className="products__footer">
-                            <div className="footer__prices">
-                                <label>
-                                    Giá chỉ từ
-                                    <span className="prices__old">
-                                        586.000đ
-                                    </span>
-                                </label>
-                                <span className="prices__actual">
-                                    459.000đ
-                                </span>
-                            </div>
-
-                            <button className='btn btn-buynow'>
-                                Mua ngay
-                                <i className="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div className='products__container'>
-                        <img width={240} height={240} src="/assets/img/products/pizza/pizza-5-loai-thit-dac-biet-rau-cu.png" alt="" />
-                        <div className="products__contents">
-                            <Link to='#' className="contents__name">Mua 1 Tặng 1 Pizza size M - Thứ 3</Link>
-                            <span className="contents__desc">
-                                Tiết kiệm: 42% (phù hợp cho 2-3 người).
-                                Combo sẽ bao gồm: 1 Pizza Classic, cỡ Nhỏ.
-                                1 Mỳ Ý bất kỳ .
-                                1 Khoai tây chiên/ Khoai tây chiên lắc phô mai/ Bánh mì que nướng/ Bánh mỳ bơ tỏi.
-                                1 Bánh Phô mai xoắn/ Gà Giòn Không Xương/ Gà Giòn Không Xương Lắc Phô Mai/ Gà Popcorn/ Gà Popcorn Lắc Phô Mai.
-                            </span>
-                        </div>
-                        <div className="products__footer">
-                            <div className="footer__prices">
-                                <label>
-                                    Giá chỉ từ
-                                    <span className="prices__old">
-                                        586.000đ
-                                    </span>
-                                </label>
-                                <span className="prices__actual">
-                                    459.000đ
-                                </span>
-                            </div>
-
-                            <button className='btn btn-buynow'>
-                                Mua ngay
-                                <i className="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div className='products__container'>
-                        <img width={240} height={240} src="/assets/img/products/pizza/pizza-5-loai-thit-dac-biet-rau-cu.png" alt="" />
-                        <div className="products__contents">
-                            <Link to='#' className="contents__name">Mua 1 Tặng 1 Pizza size M - Thứ 3</Link>
-                            <span className="contents__desc">
-                                Tiết kiệm: 42% (phù hợp cho 2-3 người).
-                                Combo sẽ bao gồm: 1 Pizza Classic, cỡ Nhỏ.
-                                1 Mỳ Ý bất kỳ .
-                                1 Khoai tây chiên/ Khoai tây chiên lắc phô mai/ Bánh mì que nướng/ Bánh mỳ bơ tỏi.
-                                1 Bánh Phô mai xoắn/ Gà Giòn Không Xương/ Gà Giòn Không Xương Lắc Phô Mai/ Gà Popcorn/ Gà Popcorn Lắc Phô Mai.
-                            </span>
-                        </div>
-                        <div className="products__footer">
-                            <div className="footer__prices">
-                                <label>
-                                    Giá chỉ từ
-                                    <span className="prices__old">
-                                        586.000đ
-                                    </span>
-                                </label>
-                                <span className="prices__actual">
-                                    459.000đ
-                                </span>
-                            </div>
-
-                            <button className='btn btn-buynow'>
-                                Mua ngay
-                                <i className="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <button
-                        onClick={handlePrevSlider}
-                    >
-                        <i className="fa-solid fa-arrow-left"></i>
-                    </button>
-                    <button
-                        onClick={handleNextSlider}
-                    >
-                        <i className="fa-solid fa-arrow-right"></i>
-                    </button>
-
+                        </>
+                    ))}
                 </Promotions>
+                <button
+                    onClick={handleNextSlider}
+                    className='slick-next-custom'
+                >
+                    <i className="fa-solid fa-arrow-right"></i>
+                </button>
             </div>
         </div>
-        // <div>
-        //     <h2> Multiple items </h2>
-        //     <Promotions {...settings}>
-        //         <div>
-        //             <h3>1</h3>
-        //         </div>
-        //         <div>
-        //             <h3>2</h3>
-        //         </div>
-        //         <div>
-        //             <h3>3</h3>
-        //         </div>
-        //         <div>
-        //             <h3>4</h3>
-        //         </div>
-        //         <div>
-        //             <h3>5</h3>
-        //         </div>
-        //         <div>
-        //             <h3>6</h3>
-        //         </div>
-        //         <div>
-        //             <h3>7</h3>
-        //         </div>
-        //         <div>
-        //             <h3>8</h3>
-        //         </div>
-        //         <div>
-        //             <h3>9</h3>
-        //         </div>
-        //     </Promotions>
-        // </div>
     )
 }
 

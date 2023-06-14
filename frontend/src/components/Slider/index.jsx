@@ -95,7 +95,6 @@ const Slider = () => {
                     dots: true
                 }
             },
-
         ],
         centerPadding: "200px", // 160px
         slidesToShow: 1,
