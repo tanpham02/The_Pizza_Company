@@ -53,7 +53,7 @@
                     font-weight: 500;
                     padding: 2px 15px;
 
-                    @include tabletPro() {
+                    @include desktop() {
                         & {
                             padding: 2px 6px;
                         }
@@ -79,7 +79,7 @@
             cursor: pointer;
             position: relative;
 
-            @include tabletPro() {
+            @include desktop() {
                 & {
                     margin-left: 6px;
                 }
@@ -169,7 +169,7 @@
                 }
             }
 
-            @include tabletPro() {
+            @include desktop() {
                 & {
                     padding: 6px;
                 }

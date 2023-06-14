@@ -7,19 +7,19 @@
 html {
     font-size: 62.5%;
     font-family: 'Nunito', sans-serif;
-    scroll-behavior: 'smooth';
+    scroll-behavior: smooth;
     max-width: 100%;
 
 }
 
 body {
-    height: 100vh;
+    // height: 100vh;
     max-width: 100%;
 }
 
-.App {
-    position: relative;
-}
+// .App {
+//     position: relative;
+// }
 
 ul {
     list-style: none;
@@ -53,32 +53,6 @@ $desktop-pro: 1366px;
 
 .menu {
     display: none;
-}
-
-
-// Responsive
-@mixin mobile {
-    @media (max-width: 767px) {
-        @content;
-    }
-}
-
-@mixin tablet {
-    @media (min-width: 768px) and (max-width: 1023px) {
-        @content;
-    }
-}
-
-@mixin tabletPro {
-    @media (min-width: 1024px) and (max-width: 1199px) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (min-width: 1200px) {
-        @content;
-    }
 }
 
 
@@ -221,16 +195,6 @@ $desktop-pro: 1366px;
 
 
 // Animation
-@keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-100%);
-    }100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @keyframes fadeIn {
     0% {
         opacity: 0;

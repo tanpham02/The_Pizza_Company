@@ -8,7 +8,7 @@
     z-index: 99999;
     background-color: #fff;
 
-    @include tabletPro() {
+    @include desktop() {
         & {
             margin-bottom: 28px;
 
@@ -36,7 +36,7 @@
         padding: 10px 15px 5px;
         width: 1200px;
 
-        @include tabletPro() {
+        @include desktop() {
             width: 960px;
         }
 
@@ -62,7 +62,7 @@
             grid-auto-rows: 60px;
             align-items: center;
 
-            @include tabletPro() {
+            @include desktop() {
                 & {
                     margin: 16px 0;
                     grid-template-columns: 1fr 1fr 1fr;
@@ -118,7 +118,7 @@
                 align-items: center;
 
 
-                @include tabletPro() {
+                @include desktop() {
                     & {
                         flex-direction: column;
                     }
@@ -149,7 +149,7 @@
                     margin-right: 10px;
                     height: 38px;
 
-                    @include tabletPro() {
+                    @include desktop() {
                         & {
                             margin-bottom: 9px;
                         }
@@ -200,7 +200,7 @@
                         display: flex;
                         align-items: center;
 
-                        @include tabletPro() {
+                        @include desktop() {
                             & {
                                 margin-bottom: 6px;
                             }
@@ -295,7 +295,7 @@
                     justify-content: center;
                     align-items: center;
 
-                    @include tabletPro() {
+                    @include desktop() {
                         & {
                             margin-left: 44px;
                         }
@@ -356,7 +356,7 @@
                         width: 1px;
                         height: 70%;
 
-                        @include tabletPro() {
+                        @include desktop() {
                             top: -1px;
                             width: 1.6px;
                             height: calc(100% + 2px);
@@ -445,7 +445,7 @@
                             flex: 1;
                             user-select: none;
 
-                            @include tabletPro() {
+                            @include desktop() {
                                 & {
                                     display: none !important;
                                 }
@@ -605,7 +605,7 @@
                             flex: 1;
                             user-select: none;
 
-                            @include tabletPro() {
+                            @include desktop() {
                                 & {
                                     display: none !important;
                                 }
@@ -735,7 +735,7 @@
                                     }
 
                                     &.span-left {
-                                        transition: all ease-out 0.2s;
+                                        transition: transform ease-out 0.25s;
                                         transform: rotate(40deg);
                                         background-color: #fff;
                                         position: absolute;
@@ -744,7 +744,7 @@
                                     }
 
                                     &.span-right {
-                                        transition: all ease-out 0.2s;
+                                        transition: transform ease-out 0.25s;
                                         transform: rotate(-40deg);
                                         background-color: #fff;
                                         position: absolute;
@@ -763,6 +763,8 @@
                             justify-content: space-around;
 
                             & span {
+
+                                // transition: transform ease-out 0.25s;
                                 &.span-middle {
                                     opacity: 1;
                                 }
@@ -788,7 +790,7 @@
                             flex: 1;
                             user-select: none;
 
-                            @include tabletPro() {
+                            @include desktop() {
                                 & {
                                     display: none !important;
                                 }

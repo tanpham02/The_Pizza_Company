@@ -205,13 +205,15 @@ const Header = () => {
                                     <span className='span-middle'></span>
                                     <span className='span-right'></span>
                                 </div>
+
                             </ul>
                         </div>
                     </div>
                     <Navigation />
                 </div>
+                <Menu showSidebar={showSidebar} />
             </div>
-            <Menu showSidebar={showSidebar} />
+                                
         </>
     )
 }
