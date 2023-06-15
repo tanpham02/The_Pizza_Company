@@ -1,26 +1,16 @@
-const MySql = require('mysql2')
-const dotEnv = require('dotenv')
-dotEnv.config({ path: '.env' })
-
-const connection = MySql.createConnection({
-    host: process.env.RAILWAY_MYSQL_HOST,
-    port: process.env.RAILWAY_MYSQL_PORT,
-    user: process.env.RAILWAY_MYSQL_USER,
-    password: process.env.RAILWAY_MYSQL_PASSWORD,
-    database: process.env.RAILWAY_MYSQL_DATABASE,
-    multipleStatements: true,
-})
-
+const mongoose = require('mongoose')
 
 const connectDb = async () => {
-    const conn = connection.connect((err) => {
-        if (err) {
-            console.log(`Connection MYSQL failure with ${err}`)
-            return process.exit(1);
-        }
-        console.log(`Connection MYSQL successfully`)
-    })
-    return conn
+    try {
+        const conn = await mongoose.connect(process.env.MONGO_URL_CLOUD, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        })
+        console.log(`Connect to MongoDB success with ${conn.connection.host}`)
+    } catch (err) {
+        console.log(`Connect MongoDB failure with ${err}`)
+        process.exit(1)
+    }
 }
 
-module.exports = { connectDb, connection }
+module.exports = connectDb
