@@ -29,5 +29,5 @@ app.use('/api/users', usersRouter)
 app.use('/api/storesSystem', storesSystemRouter)
 
 app.listen(PORT, () => {
-    console.log(`Server run with http://${process.env.RAILWAY_MYSQL_HOST}:${PORT}`)
+    console.log(`Server run with http://containers-us-west-9.railway.app:${PORT}`)
 })
