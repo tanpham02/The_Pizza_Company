@@ -29,7 +29,5 @@ app.use('/api/users', usersRouter)
 app.use('/api/storesSystem', storesSystemRouter)
 
 app.listen(PORT, () => {
-    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-    console.log(`Server running at ${protocol}://${process.env.RAILWAY_URL}:${PORT}`);
-});
-
+    console.log(`Server run successfully!`)
+})
