@@ -28,6 +28,8 @@ app.use('/api/products', productsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/storesSystem', storesSystemRouter)
 
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running at http://0.0.0.0:${PORT}`);
+app.listen(PORT, () => {
+    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+    console.log(`Server running at ${protocol}://${process.env.RAILWAY_URL}:${PORT}`);
 });
+
