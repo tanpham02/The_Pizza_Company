@@ -28,6 +28,6 @@ app.use('/api/products', productsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/storesSystem', storesSystemRouter)
 
-app.listen(`0.0.0.0:${PORT}`, () => {
-    console.log(`Server run successfully`)
-})
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running at http://0.0.0.0:${PORT}`);
+});

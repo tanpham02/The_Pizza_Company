@@ -17,7 +17,6 @@ const connectDb = async () => {
         if (err) {
             console.log(`Connection MYSQL failure with ${err}`)
             return process.exit(1);
-
         }
         console.log(`Connection MYSQL successfully`)
     })
