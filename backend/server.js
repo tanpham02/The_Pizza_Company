@@ -29,5 +29,5 @@ app.use('/api/users', usersRouter)
 app.use('/api/storesSystem', storesSystemRouter)
 
 app.listen(PORT, () => {
-    console.log(`Server run successfully!`)
+    console.log(`Server run with http://localhost:${PORT}`)
 })
