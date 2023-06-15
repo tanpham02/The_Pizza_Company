@@ -3,7 +3,7 @@ const { connection } = require('../connection/connectDb')
 const storesSystemController = {
     //GET ALLS 
     getAllStoresSystem: (req, res) => {
-        const qr = `SELECT * FROM railway.stores_system`
+        const qr = `SELECT * FROM railway.storesSystem;`
         connection.query(qr, (err, result) => {
             if (err) {
                 res.status(500).json(err.message)
@@ -16,7 +16,7 @@ const storesSystemController = {
     getAStoresSystem: (req, res) => {
         const id = req.params.id
         const qr = `SELECT * FROM railway.stores_system
-        WHERE id = ${id}`
+        WHERE id = ${id};`
         connection.query(qr, (err, result) => {
             if (err) {
                 req.status(500).json(err.message)
