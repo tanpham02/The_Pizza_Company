@@ -29,5 +29,5 @@ app.use('/api/users', usersRouter)
 app.use('/api/storesSystem', storesSystemRouter)
 
 app.listen(PORT, () => {
-    console.log(`Server run with http://containers-us-west-9.railway.app:${PORT}`)
+    console.log(`Server run with https://0.0.0.0:${PORT}`)
 })
