@@ -79,7 +79,7 @@ const Header = () => {
                     <div className="header__main">
                         <Link to='/' className="logo">
                             <Link to='/'>
-                                <img src='/public/assets/img/logo/logo-main.png' alt="The Pizza Company" />
+                                <img src='/assets/img/logo/logo-main.png' alt="The Pizza Company" />
                             </Link>
                         </Link>
 
@@ -169,7 +169,7 @@ const Header = () => {
                                 </div>
 
                                 <div className='language'>
-                                    <img width={16} height={11} src="/public/assets/img/locale-lang/EN.png" alt="English" />
+                                    <img width={16} height={11} src="/assets/img/locale-lang/EN.png" alt="English" />
                                 </div>
                             </div>
                             <ul className={`side-bar ${showSidebar ? 'show' : ''}`}>

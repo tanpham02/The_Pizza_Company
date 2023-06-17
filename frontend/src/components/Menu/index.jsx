@@ -156,7 +156,7 @@ const Menu = ({ showSidebar }) => {
                     </div>
 
                     <div className='language'>
-                        <img width={16} height={11} src="../../../public/assets/img/locale-lang/EN.png" alt="English" />
+                        <img width={16} height={11} src="/assets/img/locale-lang/EN.png" alt="English" />
                     </div>
                 </div>
             </div>
