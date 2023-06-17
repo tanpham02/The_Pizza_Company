@@ -30,7 +30,7 @@ const getAllPizzaThunk = createAsyncThunk(
     'pizza/getAllPizzaThunk',
     async () => {
         try {
-            const res = await axios(`http://localhost:5001/api/types`)
+            const res = await axios(`https://thepizzacompany-backend.up.railway.app/api/types`)
             res.data.find(pizza => pizza.name === 'Pizza')
             return res.data.find(pizza => pizza.name === 'Pizza').productIds
         } catch (err) {

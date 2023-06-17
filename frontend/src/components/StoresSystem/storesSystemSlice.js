@@ -36,7 +36,7 @@ const getAllStoresSystemThunk = createAsyncThunk(
     'storesSystem/getAllStoresSystemThunk',
     async () => {
         try {
-            const res = await axios('http://localhost:5001/api/storesSystem')
+            const res = await axios('https://thepizzacompany-backend.up.railway.app/api/storesSystem')
             const output = await res.data
             return output
         } catch (err) {
