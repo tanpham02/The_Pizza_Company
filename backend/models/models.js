@@ -5,7 +5,13 @@ const typeSchema = new mongoose.Schema({
         type: String,
         require: true,
         unique: true
-    }
+    },
+    productIds: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Products'
+        }
+    ]
 }, { versionKey: false })
 
 const productsSchema = new mongoose.Schema({
@@ -71,7 +77,7 @@ const usersSchema = new mongoose.Schema({
 
 const typeModel = mongoose.model('Types', typeSchema)
 const productsModel = mongoose.model('Products', productsSchema)
-const storesSystemModel = mongoose.model('StoresSystem', storesSystemShema)
+const storesSystemModel = mongoose.model('StoreSystems', storesSystemShema)
 const usersModel = mongoose.model('Users', usersSchema)
 
 module.exports = {
