@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-dotenv.config({ path: '.env' })
-
-const MONGO_URL_CLOUD = process.env.MONGO_URL_CLOUD
+const MONGO_URL_CLOUD = "mongodb+srv://thepizzacompany:thepizzacompany123@cluster0.tqwu0qn.mongodb.net/ThePizzaCompany?retryWrites=true&w=majority"
 
 
 const connectDb = async () => {
