@@ -2,10 +2,13 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 dotenv.config({ path: '.env' })
 
+const MONGO_URL_CLOUD = process.env.MONGO_URL_CLOUD
+
+
 const connectDb = async () => {
     try {
         const conn = await mongoose.connect(
-            "mongodb+srv://thepizzacompany:thepizzacompany123@cluster0.tqwu0qn.mongodb.net/ThePizzaCompany?retryWrites=true&w=majority",
+            MONGO_URL_CLOUD,
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true
