@@ -30,13 +30,9 @@ const getAllPizzaThunk = createAsyncThunk(
     'pizza/getAllPizzaThunk',
     async () => {
         try {
-            const res = await axios(`http://localhost:5001/api/types/${1}`)
-            const pizzaType = await res.data
-            const pizzaData = await axios(`http://localhost:5001/api/products`)
-            const result = await pizzaData.data.filter(
-                pizza => pizza.typesId === pizzaType.id
-            )
-            return result
+            const res = await axios(`http://localhost:5001/api/types`)
+            res.data.find(pizza => pizza.name === 'Pizza')
+            return res.data.find(pizza => pizza.name === 'Pizza').productIds
         } catch (err) {
             return err.message
         }
