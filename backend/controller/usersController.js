@@ -82,10 +82,20 @@ const usersController = {
 
     // SIGNIN
     login: async (req, res) => {
+        const { phoneNumber, password } = req.body
         try {
-
+            const usersCollection = await usersModel.findOne({
+                $and: [
+                    { phoneNumber: phoneNumber },
+                    { password: password }
+                ]
+            })
+            if (usersCollection) {
+                return res.status(200).json({ message: 'Đăng nhập thành công!' })
+            }
+            return res.status(400).json({ message: 'Số điện thoại hoặc mật khẩu không chính xác!' })
         } catch (err) {
-
+            res.status(500).json(err.message)
         }
     }
 
