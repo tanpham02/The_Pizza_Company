@@ -87,7 +87,7 @@ const HomeProducts = () => {
                 <Promotions ref={slickRef} {...settings}>
                     {pizzaLists.map(pizza => (
                         <>
-                            <div className='products__container'>
+                            <div className='products__container' key={pizza.id}>
                                 <img src={pizza.urlImage} alt={pizza.name} />
                                 <div className="products__introduced">
                                     <div className="products__contents">

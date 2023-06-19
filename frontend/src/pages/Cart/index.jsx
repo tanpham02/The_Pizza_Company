@@ -1,11 +1,11 @@
 import Header from "../../components/Header"
-import CartComponent from "../../components/Cart"
+import CartPage from "../../components/CartPage"
 
 const Cart = () => {
     return (
         <>
             <Header />
-            <CartComponent />
+            <CartPage />
         </>
     )
 }
