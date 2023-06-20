@@ -504,7 +504,7 @@
                             margin: 0 50px;
 
                             @include mobile() {
-                                margin: 0 12px;
+                                margin: 0 12px 0 16px;
                             }
 
                             @include mobilePro() {
