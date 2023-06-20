@@ -15,7 +15,7 @@ const HomeProducts = () => {
     const settings = {
         dots: true,
         infinite: true,
-        autoplay: true,
+        // autoplay: true,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -78,12 +78,7 @@ const HomeProducts = () => {
         <div className='home-products'>
             <div className="products promotions">
                 <h3 className='promotions__title'>Pizza - Hơn 18 loại</h3>
-                <button
-                    onClick={handlePrevSlider}
-                    className='slick-prev-custom'
-                >
-                    <i className="fa-solid fa-arrow-left"></i>
-                </button>
+
                 <Promotions ref={slickRef} {...settings}>
                     {pizzaLists.map(pizza => (
                         <>
@@ -119,12 +114,20 @@ const HomeProducts = () => {
                         </>
                     ))}
                 </Promotions>
-                <button
-                    onClick={handleNextSlider}
-                    className='slick-next-custom'
-                >
-                    <i className="fa-solid fa-arrow-right"></i>
-                </button>
+                <div className="btn-control-slide">
+                    <button
+                        onClick={handlePrevSlider}
+                        className='slick-prev-custom'
+                    >
+                        <i className="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button
+                        onClick={handleNextSlider}
+                        className='slick-next-custom'
+                    >
+                        <i className="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
     )

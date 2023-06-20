@@ -92,8 +92,9 @@ $desktop-pro: 1366px;
             @include mobile() {
                 display: flex;
                 flex: 1;
-                width: 107px;
-                height: 107px;
+                width: 120px;
+                height: 120px;
+                margin-left: -20px;
             }
 
             &:hover {
@@ -142,12 +143,13 @@ $desktop-pro: 1366px;
                 -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
                 text-overflow: ellipsis;
-                text-align: justify;
                 margin-bottom: 10px;
                 font-weight: 500;
                 letter-spacing: -0.2px;
                 line-height: 1.85rem;
                 height: 55.5px;
+
+
             }
         }
 
@@ -195,6 +197,10 @@ $desktop-pro: 1366px;
                 align-items: center;
                 justify-content: space-between;
                 color: var(--primary-color);
+
+                @include mobile() {
+                    margin-left: -1px;
+                }
 
                 &:hover {
                     background-color: var(--second-color);
