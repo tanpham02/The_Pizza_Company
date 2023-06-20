@@ -6,7 +6,7 @@ const MONGO_URL_LOCAL = "mongodb://localhost:27017/ThePizzaCompany"
 const connectDb = async () => {
     try {
         const conn = await mongoose.connect(
-            MONGO_URL_LOCAL,
+            MONGO_URL_CLOUD,
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true
