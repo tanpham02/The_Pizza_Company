@@ -5,7 +5,7 @@
     width: 1200px;
     max-width: 100%;
     margin: 144px auto 0;
-    padding: 30px 32px 0;
+    padding: 24px 32px 0;
     padding-bottom: 100px;
 
     @include mobile() {
@@ -37,37 +37,26 @@
         color: #000;
         text-align: center;
 
-        // @include mobile() {
-        //     padding-top: 40px;
-        // }
-
-        // @include mobilePro() {
-        //     position: absolute;
-        //     top: 60px;
-        //     right: 0;
-        //     left: 0;
-        //     border: 0;
-        // }
-
-        // @include tablet() {
-        //     position: absolute;
-        //     top: 60px;
-        //     right: 0;
-        //     left: 0;
-        //     border: 0;
-        // }
+        @include mobile() {
+            padding: 0px 22px;
+        }
 
         & .cart-empty__title {
             padding-top: 20px;
             font-size: 2rem;
 
-            // @include mobile() {
-            //     line-height: 2.3rem;
-            // }
+            @include mobile() {
+                line-height: 2.3rem;
+            }
 
-            // @include tablet() {
-            //     line-height: 2.3rem;
-            // }
+            @include mobilePro() {
+                padding-top: 8px;
+            }
+
+            @include tablet() {
+                padding-top: 12px;
+                line-height: 2.3rem;
+            }
         }
 
         & .cart-empty__label {
@@ -105,9 +94,6 @@
             padding: 0;
         }
 
-        @include mobilePro() {
-            padding: 0 65px;
-        }
 
         @include tablet() {
             padding: 0 30px;
@@ -124,6 +110,10 @@
                 padding: 0 26px 15px;
             }
 
+            @include mobilePro() {
+                padding: 4px 52px 15px;
+            }
+
             @include tablet() {
                 padding: 0 20px 15px;
             }
@@ -133,6 +123,7 @@
             background-color: #fff;
             border-radius: 3px;
             width: 100%;
+            min-height: 100px;
 
             @include mobile() {
                 position: sticky;
@@ -306,6 +297,10 @@
                 padding: 0 26px;
             }
 
+            @include mobilePro() {
+                padding: 0px 52px;
+            }
+
             @include tablet() {
                 padding: 0 20px;
             }
@@ -345,7 +340,7 @@
                 }
 
                 @include mobile() {
-                    padding: 26px 0 36px;
+                    padding: 12px 0 36px;
                 }
 
                 &:first-child {
@@ -374,7 +369,7 @@
                         padding: 0 15px;
                         display: flex;
                         flex: 1;
-                        align-content: center;
+                        align-items: center;
 
                         & img {
                             width: 110px;
@@ -389,7 +384,7 @@
                             }
 
                             @include mobilePro() {
-                                margin: 0 30px 0 -12px;
+                                margin: 0 0px 0 -12px;
                             }
                         }
 
@@ -399,6 +394,10 @@
 
                             @include mobile() {
                                 padding: 0;
+                            }
+
+                            @include mobilePro() {
+                                margin-left: 30px;
                             }
 
                             &__title {
@@ -417,6 +416,7 @@
                                 @include mobilePro() {
                                     text-align: left;
                                     font-size: 1.8rem;
+                                    width: 195px;
                                 }
 
                                 @include tablet() {
@@ -459,10 +459,11 @@
                         @include mobile() {
                             margin-right: 50px;
                             flex-wrap: wrap;
+                            margin-top: 6px;
                         }
 
                         @include mobilePro() {
-                            margin-right: 50px;
+                            margin-right: 105px;
                             flex-wrap: wrap;
                         }
 
@@ -511,7 +512,7 @@
                             }
 
                             @include mobilePro() {
-                                margin: 0 18px;
+                                margin: 0 22px;
                             }
 
                             @include tablet() {

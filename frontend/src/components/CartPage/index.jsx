@@ -2,13 +2,13 @@ import './index.scss'
 const CartPage = () => {
     return (
         <div className='shopping-carts-page have-carts'>
-            {/* <div className="shopping-carts-page__empty">
+            <div className="shopping-carts-page__empty">
                 <h3 className='cart-empty__title'>Rất tiếc!!! Bạn không có sản phẩm ở đây.</h3>
                 <label className='cart-empty__label'>
                     Chúng tôi sẽ giao hàng với hoá đơn trên&nbsp;
                     <span className='cart-empty__min-price'>100,000 đ</span>
                 </label>
-            </div> */}
+            </div>
 
             <div className="shopping-carts-page__fill">
                 <h3 className='shopping-carts-page__title'>Sản phẩm</h3>
