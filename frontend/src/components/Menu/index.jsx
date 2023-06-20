@@ -15,7 +15,7 @@ const Menu = ({ showSidebar }) => {
     const dispatch = useDispatch()
     const [showListAdd, setShowListAdd] = useState(false)
 
-
+   
     useEffect(() => {
         dispatch(getAllStoresSystemThunk())
     }, [])
@@ -118,6 +118,7 @@ const Menu = ({ showSidebar }) => {
 
                     {(storesSystem && !showListAdd) &&
                         <ul
+                            style={{zIndex: 9}}
                             className='address__lists'
                             onClick={(e) => {
                                 e.stopPropagation()

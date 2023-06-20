@@ -129,6 +129,7 @@ const Header = () => {
 
                                 {(storesSystem && !showListAdd) &&
                                     <ul
+                                        style={{ zIndex: 9 }}
                                         className='address__lists'
                                         onClick={(e) => {
                                             e.stopPropagation()
@@ -213,7 +214,7 @@ const Header = () => {
                 </div>
                 <Menu showSidebar={showSidebar} />
             </div>
-                                
+
         </>
     )
 }

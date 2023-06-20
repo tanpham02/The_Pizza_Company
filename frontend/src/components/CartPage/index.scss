@@ -336,6 +336,10 @@
                 position: relative;
                 cursor: pointer;
 
+                @include tablet() {
+                    padding: 16px 0;
+                }
+
                 @include mobile() {
                     padding: 15px 0 36px;
                 }
@@ -343,7 +347,6 @@
                 @include mobile() {
                     padding: 26px 0 36px;
                 }
-
 
                 &:first-child {
                     border-top: 1px solid #e1e1e1;
