@@ -5,8 +5,23 @@
     width: 1200px;
     max-width: 100%;
     margin: 144px auto 0;
-    padding: 0 32px;
-    padding-bottom: 100px;  
+    padding: 30px 32px 0;
+    padding-bottom: 100px;
+
+    @include mobile() {
+        margin: 62px auto 0;
+        padding: 20px 0px 0;
+    }
+
+    @include mobilePro() {
+        margin: 100px auto 0;
+        padding: 20px 0px 0;
+    }
+
+    @include tablet() {
+        margin: 95px auto 0;
+        padding: 20px 0px 0;
+    }
 
     &.have-carts {
         & .shopping-carts-page__fill {
@@ -86,12 +101,32 @@
         display: none;
         padding: 0 15px;
 
+        @include mobile() {
+            padding: 0;
+        }
+
+        @include mobilePro() {
+            padding: 0 65px;
+        }
+
+        @include tablet() {
+            padding: 0 30px;
+        }
+
         & .shopping-carts-page__title {
             color: #333;
             font-size: 24px;
             font-weight: 700;
             width: 100%;
             padding-bottom: 15px;
+
+            @include mobile() {
+                padding: 0 26px 15px;
+            }
+
+            @include tablet() {
+                padding: 0 20px 15px;
+            }
         }
 
         & .shopping-carts-page__bottom {
@@ -99,12 +134,46 @@
             border-radius: 3px;
             width: 100%;
 
+            @include mobile() {
+                position: sticky;
+                z-index: 100;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                right: 0;
+                background: #fff;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+                padding: 10px 15px;
+                -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+            }
+
+            @include tablet() {
+                padding: 0 26px;
+            }
+
             & .top {
                 width: 100%;
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
                 padding: 15px;
+
+                @include mobile() {
+                    justify-content: space-between;
+                    padding: 0;
+                }
+
+                @include tablet() {
+                    justify-content: space-between;
+                    padding: 0;
+                }
 
                 & .label {
                     font-size: 2.2rem;
@@ -124,11 +193,26 @@
             }
 
             & .bottom {
-                width: 50%;
+                max-width: 100%;
+                width: 100%;
                 margin-top: 3px;
                 display: flex;
                 flex-direction: row-reverse;
                 float: right;
+
+                @include mobile() {
+                    padding: 0 6px;
+                    max-width: 100%;
+                    width: 100%;
+                }
+
+                @include tablet() {
+                    padding: 0 6px;
+                    max-width: 100%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
 
                 & .btn-checkout,
                 & .btn-backhome {
@@ -144,8 +228,32 @@
                     max-width: 230px;
                     position: relative;
 
+                    @include mobile() {
+                        font-size: 1.5rem;
+                        min-height: 43px;
+                        width: 48%;
+                    }
+
+                    @include tablet() {
+                        font-size: 1.6rem;
+                        width: 100%;
+                        max-width: 280px;
+                    }
+
                     &:hover {
                         text-decoration: underline;
+
+                        @include mobile() {
+                            text-decoration: none;
+                        }
+
+                        @include mobilePro() {
+                            text-decoration: none;
+                        }
+
+                        @include tablet() {
+                            text-decoration: none;
+                        }
                     }
 
                     & i {
@@ -153,6 +261,10 @@
                         top: 50%;
                         transform: translate(0, -50%);
                         font-size: 1.8rem;
+
+                        @include mobile() {
+                            font-size: 1.3rem;
+                        }
                     }
                 }
 
@@ -190,6 +302,14 @@
             overflow-x: hidden;
             position: relative;
 
+            @include mobile() {
+                padding: 0 26px;
+            }
+
+            @include tablet() {
+                padding: 0 20px;
+            }
+
             &::-webkit-scrollbar {
                 border-radius: 20px;
                 width: 10px;
@@ -216,6 +336,15 @@
                 position: relative;
                 cursor: pointer;
 
+                @include mobile() {
+                    padding: 15px 0 36px;
+                }
+
+                @include mobile() {
+                    padding: 26px 0 36px;
+                }
+
+
                 &:first-child {
                     border-top: 1px solid #e1e1e1;
                 }
@@ -227,6 +356,16 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+
+                    @include mobile() {
+                        flex-direction: column;
+                        padding: 0;
+                    }
+
+                    @include mobilePro() {
+                        flex-direction: column;
+                        padding: 0;
+                    }
 
                     &__left {
                         padding: 0 15px;
@@ -241,10 +380,23 @@
                             object-fit: contain;
                             vertical-align: middle;
                             margin: 0 15px;
+
+                            @include mobile() {
+                                margin: 0 26px 0 -12px;
+                            }
+
+                            @include mobilePro() {
+                                margin: 0 30px 0 -12px;
+                            }
                         }
+
 
                         & .contents {
                             padding: 0 15px;
+
+                            @include mobile() {
+                                padding: 0;
+                            }
 
                             &__title {
                                 font-size: 1.9rem;
@@ -253,6 +405,21 @@
                                 max-width: 320px;
                                 text-align: justify;
                                 display: block;
+
+                                @include mobile() {
+                                    text-align: left;
+                                    font-size: 1.8rem;
+                                }
+
+                                @include mobilePro() {
+                                    text-align: left;
+                                    font-size: 1.8rem;
+                                }
+
+                                @include tablet() {
+                                    text-align: left;
+                                    font-size: 1.8rem;
+                                }
 
                                 &:hover {
                                     color: var(--primary-color);
@@ -269,6 +436,10 @@
                                     color: #666666;
                                     font-size: 1.4rem;
                                     font-weight: 500;
+
+                                    @include mobile() {
+                                        font-weight: 400;
+                                    }
                                 }
                             }
                         }
@@ -282,6 +453,16 @@
                         align-items: center;
                         padding: 0 15px;
 
+                        @include mobile() {
+                            margin-right: 50px;
+                            flex-wrap: wrap;
+                        }
+
+                        @include mobilePro() {
+                            margin-right: 50px;
+                            flex-wrap: wrap;
+                        }
+
                         & .amount {
                             border: 1px solid #e1e1e1;
                             border-radius: 8px;
@@ -291,6 +472,11 @@
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
+
+                            @include mobile() {
+                                margin-bottom: 10px;
+                            }
+
 
 
                             & input {
@@ -316,6 +502,18 @@
                             font-weight: 600;
                             font-size: 1.8rem;
                             margin: 0 50px;
+
+                            @include mobile() {
+                                margin: 0 12px;
+                            }
+
+                            @include mobilePro() {
+                                margin: 0 12px;
+                            }
+
+                            @include tablet() {
+                                margin: 0 12px;
+                            }
                         }
 
                         & .btn-remove {
